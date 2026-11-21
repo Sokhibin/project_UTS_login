@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login Mahasiswa</title>
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <main class="page">
+    <form class="card" id="loginForm" onsubmit="return false" novalidate>
+      <div class="brand"><img src="assets/logo.svg" alt=""> Portal Akademik</div>
+      <h2>Login Mahasiswa</h2>
+
+      <div class="field">
+        <label for="nim">NIM</label>
+        <input class="input" id="nim" name="nim" type="text" inputmode="numeric"
+               autocomplete="username" maxlength="12">
+        <p class="msg" id="nimMsg" role="alert"></p>
+      </div>
+
+      <div class="field">
+        <label for="password">Kata sandi</label>
+        <div class="wrap">
+          <input class="input" id="password" name="password" type="password"
+                 autocomplete="current-password">
+          <button class="toggle" id="togglePw" type="button" aria-label="Tampilkan kata sandi"><svg class="ic-show" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg><svg class="ic-hide" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg></button>
+        </div>
+        <p class="msg" id="pwMsg" role="alert"></p>
+      </div>
+
+      <!-- <label class="check"><input type="checkbox" id="remember"> Ingat NIM saya</label> -->
+
+      <p class="msg form-msg" id="formMsg" role="alert"></p>
+      <button class="btn" type="submit" id="btnSubmit">Masuk</button>
+    </form>
+  </main>
+
+  <script src="js/data.js"></script>
+  <script src="js/login.js"></script>
+</body>
+</html>
