@@ -17,7 +17,7 @@
 
 body {
   margin: 0;
-  font-family: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
   background: var(--bg);
   color: var(--ink);
   line-height: 1.5;
@@ -104,8 +104,6 @@ input::-ms-clear { display: none; }
 .toggle .ic-hide { display: none; }
 .toggle.on .ic-show { display: none; }
 .toggle.on .ic-hide { display: block; }
-
-.check { display: flex; align-items: center; gap: 8px; font-size: .9rem; cursor: pointer; margin-bottom: 14px; }
 
 .msg { margin: 6px 0 0; min-height: 1.2em; font-size: .85rem; color: var(--danger); }
 .form-msg { margin: 0 0 10px; }

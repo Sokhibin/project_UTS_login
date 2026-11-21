@@ -13,13 +13,6 @@ const pwInput = $("password");
 // Jika sudah login, langsung ke dashboard
 if (mahasiswaAktif()) location.replace("dashboard.html");
 
-// Isi otomatis NIM bila pernah memilih "Ingat NIM saya"
-const nimTersimpan = ambil("mhs_nim", true);
-if (nimTersimpan) {
-  nimInput.value = nimTersimpan;
-  $("remember").checked = true;
-}
-
 function setError(input, msgEl, text) {
   input.classList.toggle("error", !!text);
   input.classList.toggle("valid", !text && input.value !== "");
@@ -71,26 +64,16 @@ form.addEventListener("submit", (e) => {
   const pwOk = cekPassword();
   if (!nimOk || !pwOk) return;
 
-  const btn = $("btnSubmit");
-  btn.disabled = true;
-  btn.textContent = "Memeriksa…";
+  const nim = nimInput.value.trim();
+  const mhs = MAHASISWA.find((m) => m.nim === nim && m.password === pwInput.value);
 
-  // Simulasi jeda permintaan ke server
-  setTimeout(() => {
-    const nim = nimInput.value.trim();
-    const mhs = MAHASISWA.find((m) => m.nim === nim && m.password === pwInput.value);
+  if (!mhs) {
+    $("formMsg").textContent = "NIM atau kata sandi salah. Periksa kembali lalu coba lagi.";
+    pwInput.value = "";
+    pwInput.focus();
+    return;
+  }
 
-    if (!mhs) {
-      btn.disabled = false;
-      btn.textContent = "Masuk";
-      $("formMsg").textContent = "NIM atau kata sandi salah. Periksa kembali lalu coba lagi.";
-      pwInput.value = "";
-      pwInput.focus();
-      return;
-    }
-
-    simpan("mhs_login", mhs.nim, false);
-    simpan("mhs_nim", $("remember").checked ? mhs.nim : null, true);
-    location.href = "dashboard.html";
-  }, 600);
+  simpan("mhs_login", mhs.nim, false);
+  location.replace("dashboard.html");
 });

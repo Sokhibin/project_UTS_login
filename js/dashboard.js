@@ -28,7 +28,7 @@ function tampilkan() {
 
 $("btnLogout").addEventListener("click", () => {
   simpan("mhs_login", null, false);
-  location.href = "index.html";
+  location.replace("index.html");
 });
 
 if (mhs) tampilkan();
